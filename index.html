@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Machine, Ubuntu & DOS Commands</title>
+    <!-- SEO Meta Tags -->
+<meta name="title" content="Presentasi Virtual Machine, Ubuntu, dan Perintah DOS">
+<meta name="description" content="Website presentasi interaktif tentang Virtual Machine, instalasi Ubuntu di VirtualBox, dan perintah dasar DOS.">
+<meta name="keywords" content="Virtual Machine, Ubuntu, VirtualBox, Perintah DOS, CMD, IT, RPL, Teknologi, Sistem Operasi">
+<meta name="author" content="Ario Zulkaesi Nubli">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Presentasi Virtual Machine, Ubuntu, dan Perintah DOS">
+<meta property="og:description" content="Website interaktif tentang Virtual Machine, instalasi Ubuntu, dan perintah dasar DOS.">
+<meta property="og:image" content="https://yourwebsite.com/thumbnail.jpg"> <!-- Ganti dengan URL gambar -->
+<meta property="og:url" content="https://yourwebsite.vercel.app">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Presentasi Virtual Machine, Ubuntu, dan Perintah DOS">
+<meta name="twitter:description" content="Website interaktif tentang Virtual Machine, instalasi Ubuntu, dan perintah dasar DOS.">
+<meta name="twitter:image" content="https://yourwebsite.com/thumbnail.jpg">
+<link rel="canonical" href="https://yourwebsite.vercel.app">
+<link rel="icon" href="/logo3.png">
+    
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/black.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- GSAP for Smooth Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #0ff;
+            --secondary-color: #f39c12;
+            --accent-color: #ff4757;
+            --bg-dark: #121212;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--primary-color);
+            text-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .glassmorphism {
+            background: var(--glass-bg);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glassmorphism:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .terminal {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            white-space: pre-line;
+        }
+
+        .typing {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid var(--accent-color);
+            white-space: nowrap;
+            animation: typing 3s steps(20) infinite, blink 0.5s step-end infinite;
+        }
+
+        @keyframes blink {
+            from { border-color: var(--accent-color); }
+            to { border-color: transparent; }
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--primary-color);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+    <source src="bg.mp3" type="audio/mp3">
+</audio>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-transition="zoom-in fade-out">
+                <h1 class="animate__animated animate__fadeIn">🌐 Teknologi Virtualisasi</h1>
+                <h3 class="animate__animated animate__fadeIn">Virtual Machine, Ubuntu & DOS</h3>
+                <p><i class="fas fa-user"></i> Ujian Project: <strong>Ario Zulkaesi Nubli</strong></p>
+                <p><i class="fas fa-calendar"></i> 13 Maret 2025 | XI RPL 2</p>
+            </section>
+
+            <section>
+                <h2>📜 Daftar Isi</h2>
+                <ul>
+                    <li class="fragment fade-up">🔹 Pengertian Virtual Machine</li>
+                    <li class="fragment fade-up">🔹 Instalasi Ubuntu di VirtualBox</li>
+                    <li class="fragment fade-up">🔹 Perintah DOS</li>
+                    <li class="fragment fade-up">🔹 Demo & Praktik</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>🤖 Apa Itu Virtual Machine?</h2>
+                <div class="glassmorphism">
+                    <p>Virtual Machine adalah sistem yang memungkinkan kita menjalankan OS lain di dalam komputer utama.</p>
+                    <div class="grid-container">
+                        <div class="feature-card fragment">
+                            <i class="fas fa-laptop-code feature-icon"></i>
+                            <h3>Simulasi Komputer</h3>
+                        </div>
+                        <div class="feature-card fragment">
+                            <i class="fas fa-server feature-icon"></i>
+                            <h3>Berjalan di Hypervisor</h3>
+                        </div>
+                        <div class="feature-card fragment">
+                            <i class="fas fa-network-wired feature-icon"></i>
+                            <h3>Virtualisasi Jaringan</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Instalasi Ubuntu di VirtualBox -->
+            <section>
+                <h2>⚙️ Tutorial Instalasi Ubuntu</h2>
+                <div class="glassmorphism">
+                    <ol>
+                        <li class="fragment fade-left">🔸 Download VirtualBox dan Ubuntu ISO</li>
+                        <li class="fragment fade-left">🔸 Buat VM baru dengan tipe "Linux"</li>
+                        <li class="fragment fade-left">🔸 Atur RAM 2GB dan Storage 20GB</li>
+                        <li class="fragment fade-left">🔸 Pilih ISO Ubuntu dan install</li>
+                        <li class="fragment fade-left">🔸 Selesaikan instalasi dan reboot</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Slide 5: Perintah DOS -->
+            <section>
+                <h2>💻 Contoh Perintah Pada DOS Dasar</h2>
+                <div class="terminal">
+                    <p class="typing">C:\> dir  <br>Menampilkan daftar file dalam direktori</p>
+                    <p class="typing">C:\> cd folder <br>Masuk ke folder tertentu</p>
+                    <p class="typing">C:\> cls <br>Membersihkan layar</p>
+                    <p class="typing">C:\> exit <br>Keluar dari command prompt</p>
+                </div>
+            </section>
+
+            <!-- Slide 6: Demo & Praktik -->
+            <section>
+                <h2>🎥 Demo & Praktik</h2>
+                <div class="glassmorphism">
+                    <p>Mari kita lihat demo instalasi Ubuntu di VirtualBox dan penggunaan perintah DOS.</p>
+                    <div class="grid-container">
+                        <div class="feature-card fragment">
+                            <i class="fas fa-play-circle feature-icon"></i>
+                            <h3><a href="https://youtu.be/oJUD4t_pWUg?si=YOIbm1dhxyqwGl87">Demo Instalasi</a></h3>
+                        </div>
+                        <div class="feature-card fragment">
+                            <i class="fas fa-terminal feature-icon"></i>
+                            <h3><a href="https://youtu.be/jbt5BeTEwD8?si=-tsKcEbrjoglwGpn">Praktik DOS</h3>
+                        </a></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: true,
+            transition: 'convex',
+            transitionSpeed: 'fast',
+        });
+
+        gsap.from(".reveal h1, .reveal h2, .reveal h3", {
+            opacity: 0,
+            y: -50,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.3
+        });
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100 },
+                size: { value: 3 },
+                move: { speed: 2 },
+                color: { value: "#ffffff" },
+                line_linked: { enable: true, color: "#ffffff" }
+            }
+        });
+        
+        document.addEventListener("DOMContentLoaded", function() {
+        const audio = document.getElementById("background-audio");
+        audio.volume = 0.5; // Atur volume sesuai kebutuhan
+
+        // Coba langsung putar saat halaman dimuat
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Autoplay diblokir, menunggu interaksi pengguna...");
+                document.addEventListener("click", function() {
+                    audio.play();
+                }, { once: true });
+            });
+        }
+    });
+    
+    </script>
+
+
+</body>
+</html>
